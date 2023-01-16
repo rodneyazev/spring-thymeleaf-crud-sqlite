@@ -8,9 +8,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Transactional
@@ -20,38 +20,37 @@ public class ContactsController {
 	@Autowired
 	private ContactsRepository er;
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public ModelAndView eventsList() {
 		ModelAndView mv = new ModelAndView("index");
 		Iterable<Contacts> events = er.findAll(new Sort(Direction.ASC, "department"));	
-		mv.addObject("contacts", events);
-		return mv;
+		return mv.addObject("contacts", events);
 	}
 	
-	@RequestMapping(value="/contacts/add", method=RequestMethod.GET)
+	@GetMapping("/contacts/add")
 	public String eventsAdd() {
 		return "contacts/contactsAdd";
 	}
 	
-	@RequestMapping(value="/contacts/add", method=RequestMethod.POST)	
+	@PostMapping("/contacts/add")	
 	public String eventsAdd(Contacts events) {
 		er.save(events);
 		return "redirect:/";
 	}
 	
-    @RequestMapping(value="/contacts/edit/{id}")
+    @GetMapping("/contacts/edit/{id}")
 	public String eventsEdit(@PathVariable("id") int id, Model model) {
 		model.addAttribute("contacts", er.findById(id));
 		return "contacts/contactsEdit";
 	}
     
-    @RequestMapping(value="/contacts/edit/{id}", method=RequestMethod.POST)	
+    @PostMapping("/contacts/edit/{id}")	
 	public String contactsEdit(Contacts events) {
 		er.save(events);
 		return "redirect:/";
 	}
     
-    @RequestMapping(value="/contacts/delete/{id}")
+    @GetMapping("/contacts/delete/{id}")
     public String eventsDelete(@PathVariable("id") int id) {
 		er.deleteById(id);
 		return "redirect:/";

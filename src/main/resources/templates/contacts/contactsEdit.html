@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xthml"
+		xmlns:th="http://www.thymeleaf.org/">
+	<head>
+		<title>Unidades Internacionais</title>
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/fontawesome/css/all.css">
+		<script src="/jquery/js/jquery-3.3.1.min.js"></script>
+		<script src="/projeto/js/projeto.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3>Contacts - Edit</h3>
+			
+			<form method="post">
+				<div class="form-group">
+					<label for="contacts">Name:</label>
+					<input type="text" class="form-control" th:value="${contacts.name}" name="name" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">ID:</label>
+					<input type="text" class="form-control" th:value="${contacts.id_personal}" name="id_personal" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">Position:</label>
+					<input type="text" class="form-control" th:value="${contacts.position}" name="position" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">Contact:</label>
+					<input type="text" class="form-control" th:value="${contacts.phone}" name="phone" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">Email:</label>
+					<input type="text" class="form-control" th:value="${contacts.email}" name="email" style="text-transform:lowercase"  onBlur="this.value = this.value.toLowerCase();"/>
+					<label for="contacts">Department:</label>
+					<input type="text" class="form-control" th:value="${contacts.department}" name="department" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">Unit:</label>
+					<input type="text" class="form-control" th:value="${contacts.unit}" name="unit" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+					<label for="contacts">Observation:</label>
+					<input type="text" class="form-control" th:value="${contacts.observation}" name="observation" style="text-transform:uppercase"  onBlur="this.value = this.value.toUpperCase();"/>
+				</div>
+				<a href="/" class="btn btn-primary">Back</a>
+				<button type="submit" class="btn btn-primary" style="float:right;">Save</button>
+			</form>
+		</div>	
+    	<script src="/jquery/jquery-3.3.1.slim.min.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+	</body>
+</html>

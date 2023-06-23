@@ -12,23 +12,23 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @Configuration
 public class DatabaseConfiguration {
 
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.sqlite.JDBC");
-		dataSource.setUrl("jdbc:sqlite:contacts_project.db");
-		// dataSource.setUsername("");
-		// dataSource.setPassword("");
-	    return dataSource;
-	}
-	
-	@Bean
-	public JpaVendorAdapter jpaVendorAdapter() {
-		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.DEFAULT);
-		adapter.setDatabasePlatform("org.hibernate.dialect.SQLiteDialect");
-		adapter.setGenerateDdl(true);
-		return adapter;
-	}
+    @Bean
+    DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("org.sqlite.JDBC");
+        dataSource.setUrl("jdbc:sqlite:contacts_project.db");
+        // dataSource.setUsername("");
+        // dataSource.setPassword("");
+        return dataSource;
+    }
+
+    @Bean
+    JpaVendorAdapter jpaVendorAdapter() {
+        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+        adapter.setDatabase(Database.DEFAULT);
+        adapter.setDatabasePlatform("org.hibernate.dialect.SQLiteDialect");
+        adapter.setGenerateDdl(true);
+        return adapter;
+    }
 	
 }

@@ -64,9 +64,9 @@
 		    <artifactId>sqlite-jdbc</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>com.zsoltfabok</groupId>
-		    <artifactId>sqlite-dialect</artifactId>
-		    <version>1.0</version>
+    		<groupId>com.github.gwenn</groupId>
+    		<artifactId>sqlite-dialect</artifactId>
+    		<version>0.1.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.ini4j</groupId>

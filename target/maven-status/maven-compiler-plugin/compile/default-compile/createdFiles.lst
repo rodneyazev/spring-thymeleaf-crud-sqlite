@@ -1,0 +1,5 @@
+com/project/database/DatabaseConfiguration.class
+com/project/contacts/ContactsController.class
+com/project/contacts/ContactsRepository.class
+com/project/contacts/Contacts.class
+com/project/Project.class
